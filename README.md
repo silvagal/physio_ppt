@@ -1,11 +1,12 @@
-# Physio-PPT: SSL Fisiologicamente Ancorado para ECG Multi-Lead em Low-Label
+# Physio-PPT: Physiology-Anchored SSL for Multi-Lead ECG in Low-Label Regimes
 
-## Pitch
-O `physio_ppt` é um subprojeto isolado para investigar SSL em ECG com um viés explícito de fisiologia cardíaca. Em vez de tratar a ordem temporal apenas como um artefato de patches genéricos, o método Physio-PPT respeita a estrutura P/QRS/T e o alinhamento ao R-peak para construir views e perturbações mais clinicamente plausíveis.
+Cardiovascular diseases remain a leading cause of morbidity and mortality worldwide, and the electrocardiogram (ECG) is a central, low-cost tool for screening, diagnosis, and monitoring. This repository introduces **Physio-PPT**, a physiology-anchored patch-order SSL method for ECG.
 
-A proposta compara, em protocolo único e reproduzível, quatro braços principais: supervisionado forte, PPT clássico, ECGWavePuzzle e Physio-PPT. O foco é regime low-label (1%, 5%, 10%), estatística com bootstrap pareado e análise de orderness (ACF-COS + Beat-Order Score), com rastreabilidade total de config, seed, checkpoint e métricas.
+Our goal is to improve ECG classification under low-label regimes, a setting that is increasingly common outside large curated benchmarks: labels are expensive, institution-dependent, and often unavailable at scale, whereas unlabeled ECG streams from wearables and bedside monitoring are abundant.
 
-## Estrutura
+Physio-PPT retains the Patch-Order Pretext Task (PPT) training recipe but constrains permutations to remain within physiologically meaningful regions (P, QRS, and T) around R-peaks. This ensures that points are shuffled only within each physiological segment, maintaining the global physiological structure of the heartbeat while still introducing a local order disruption sufficient to define a meaningful self-supervised pretext task.
+
+## Structure
 
 ```text
 physio_ppt/
@@ -17,35 +18,35 @@ physio_ppt/
   outputs/
 ```
 
-## Instalação
+## Installation
 
-Do diretório raiz do repositório:
+From the repository root directory:
 
 ```bash
 pip install -e physio_ppt
 ```
 
-Opcional (dependências extras para delineation):
+Optional (extra dependencies for delineation):
 
 ```bash
 pip install -e "physio_ppt[extras]"
 ```
 
-Para desenvolvimento/testes:
+For development/testing:
 
 ```bash
 pip install -e "physio_ppt[dev]"
 ```
 
-## CLI única
+## CLI Commands
 
-Comando padrão:
+Default command:
 
 ```bash
 python3 -m physio_ppt.cli run --config <yaml> --seed <int> --device <cpu|cuda>
 ```
 
-Subcomandos disponíveis:
+Available subcommands:
 
 - `prepare_data`
 - `pretrain`
@@ -55,84 +56,70 @@ Subcomandos disponíveis:
 - `make_figures`
 - `run`
 
-## Preparação de dados
+## Data Preparation
 
-### Usando artefatos já processados (default)
-Os YAMLs já apontam para:
+### Using pre-processed artifacts (default)
+The YAMLs already point to:
 
 - `ecg-patch-order-ssl/data/processed/mitbih/fs500/...`
 - `ecg-patch-order-ssl/data/processed/ptbxl/fs500/superclasses`
 
-Nesse caso, não é necessário reprocesar.
+In this case, no reprocessing is needed.
 
-### Reprocessar do zero
+### Reprocess from scratch
 
 ```bash
 bash physio_ppt/scripts/00_prepare_data.sh physio_ppt/configs/train/physio_ppt.yaml 42 cpu
 ```
 
-Se quiser forçar preprocessamento no YAML, use overrides:
+## Experiments
 
-```bash
-python3 -m physio_ppt.cli prepare_data \
-  --config physio_ppt/configs/train/physio_ppt.yaml \
-  --seed 42 --device cpu \
-  --override data.prepare_mitbih=true \
-  --override data.prepare_ptbxl=true
-```
+Official seeds: `[42, 1337, 2025, 7, 123]`
 
-## Experimentos do paper
+The experiments evaluate four main arms: strong supervised, classic PPT, ECGWavePuzzle, and Physio-PPT. The focus is on the low-label regime (1%, 5%, 10%), paired bootstrap statistics, and orderness analysis.
 
-Seeds oficiais:
-
-```text
-[42, 1337, 2025, 7, 123]
-```
-
-### E1: MIT-BIH pretrain + PTB-XL finetune low-label (1/5/10)
+### E1: Low-label transfer
+**Description:** Evaluates the models on a controlled low-label transfer setting to isolate the effect of order-aware SSL pretexts. The models are pretrained on MIT-BIH (labels ignored) and fine-tuned on PTB-XL superclasses with 1%, 5%, and 10% label fractions under leakage-safe patient-wise evaluation.
 
 ```bash
 python3 -m physio_ppt.cli run --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda
 ```
 
-### E2: Ablações Physio-PPT
+### E2: Ablation study (objective vs. perturbation scope)
+**Description:** Isolates the mechanisms behind Physio-PPT by ablating the objective components (consistency vs contrastive) and the perturbation scope (intra-segment vs inter-segment). This validates that combining consistency and contrastive learning yields the strongest transfer and that preserving the intra-segment physiological structure is beneficial.
 
-Somente consistency:
-
+Consistency only:
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
   --override ssl.use_consistency=true --override ssl.use_contrastive=false
 ```
 
-Somente contrastive:
-
+Contrastive only:
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
   --override ssl.use_consistency=false --override ssl.use_contrastive=true
 ```
 
-Ambos + sem inter-segment:
-
+Both + without inter-segment (Physio-PPT Intra-only):
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
   --override ssl.perturb_mode=intra
 ```
 
-### E3: Comparação 4-way em 10% labels
+### E3: Reliability and seed-dependent collapse
+**Description:** Beyond average accuracy, this experiment analyzes reliability across multiple random seeds. It demonstrates the stability of Physio-PPT and ECGWavePuzzle across seeds in a 4-way comparison at 10% labels, and highlights the seed-dependent collapse that can occur with classic PPT when utilizing physiology-agnostic global patch permutations.
 
-Supervisionado forte:
-
+Strong supervised:
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/supervised_strong.yaml --seed 42 --device cuda \
   --override pipeline.label_fractions=0.1 --override pipeline.do_pretrain=false
 ```
 
-PPT clássico:
-
+Classic PPT:
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/ppt_classic.yaml --seed 42 --device cuda \
@@ -140,7 +127,6 @@ python3 -m physio_ppt.cli run \
 ```
 
 WavePuzzle:
-
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/wavepuzzle.yaml --seed 42 --device cuda \
@@ -148,36 +134,31 @@ python3 -m physio_ppt.cli run \
 ```
 
 Physio-PPT:
-
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
   --override pipeline.label_fractions=0.1
 ```
 
-Hybrid (opcional):
-
+Hybrid (optional):
 ```bash
 python3 -m physio_ppt.cli run --config physio_ppt/configs/train/hybrid_multitask.yaml --seed 42 --device cuda
 ```
 
-### E4: Análise de orderness (ACF-COS + Beat-Order Score)
-
+### E4: Orderness analysis (ACF-COS + Beat-Order Score)
 ```bash
 bash physio_ppt/scripts/04_orderness_analysis.sh
 ```
 
-### E5 (opcional): robustez a ruído/drift
-
-Use overrides para ruído (exemplo simples):
-
+### E5 (optional): noise/drift robustness
+Use overrides for noise (simple example):
 ```bash
 python3 -m physio_ppt.cli run \
   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
   --override ssl.noise_sigma=0.02
 ```
 
-## Significância estatística (bootstrap pareado)
+## Statistical significance (paired bootstrap)
 
 ```bash
 bash physio_ppt/scripts/03_eval_significance.sh \
@@ -185,59 +166,52 @@ bash physio_ppt/scripts/03_eval_significance.sh \
   <pred_method_a.npz> <pred_method_b.npz> 42 cpu
 ```
 
-## Geração de tabelas e figuras
+## Table and Figure Generation
 
-Agregação low-label:
-
+Low-label aggregation:
 ```bash
 python3 -m physio_ppt.cli eval --config physio_ppt/configs/eval/low_label_1_5_10.yaml --seed 42 --device cpu
 ```
 
-Figuras principais:
-
+Main figures:
 ```bash
 bash physio_ppt/scripts/05_make_figures.sh
 ```
 
-Artefatos esperados:
+Expected artifacts:
+- Tables: `physio_ppt/outputs/tables/`
+- Figures: `physio_ppt/figures/`
 
-- Tabelas: `physio_ppt/outputs/tables/`
-- Figuras: `physio_ppt/figures/`
-
-## Runner completo (mínimo paper)
+## Full runner (minimum for paper)
 
 ```bash
 PARALLEL=1 DEVICE=cuda bash physio_ppt/scripts/run_all.sh
 ```
 
-Com paralelismo:
-
+With parallelism:
 ```bash
 PARALLEL=4 DEVICE=cuda bash physio_ppt/scripts/run_all.sh
 ```
 
-## Reprodutibilidade
+## Reproducibility
 
 Checklist:
-
-- Seeds fixas: `[42, 1337, 2025, 7, 123]`
-- `config_used.yaml` salvo em cada run
-- Checkpoint com hash de config no nome da run
-- Logs estruturados em `events.jsonl`
-- Métricas por época em `metrics.csv`
-- Métricas finais em `test_metrics.csv`
-- Predições de teste para bootstrap em `test_predictions.npz`
+- Fixed seeds: `[42, 1337, 2025, 7, 123]`
+- `config_used.yaml` saved in each run
+- Checkpoint with config hash in the run name
+- Structured logs in `events.jsonl`
+- Metrics per epoch in `metrics.csv`
+- Final metrics in `test_metrics.csv`
+- Test predictions for bootstrap in `test_predictions.npz`
 
 Hardware:
+- CPU: supported (slower)
+- GPU: recommended for full matrix
 
-- CPU: suportado (mais lento)
-- GPU: recomendado para matriz completa
-
-## Threats to Validity (curto)
-
-- MIT-BIH possui 2 leads; para transferência com PTB-XL o default usa subconjunto de leads para comparabilidade de canal. Mitigação: reportar explicitamente esse desenho e rodar análise adicional com adaptações 12-lead.
-- Delineation P/QRS/T depende de detector e fallback. Mitigação: taxa de fallback é logada e o método fixo por offsets mantém robustez operacional.
-- Diferenças de distribuição entre datasets podem inflar/atenuar ganhos SSL. Mitigação: seeds múltiplas, bootstrap pareado por exame e protocolo estrito sem leakage.
+## Threats to Validity (short)
+- MIT-BIH has 2 leads; for transfer with PTB-XL the default uses a subset of leads for channel comparability. Mitigation: explicitly report this design and run additional analysis with 12-lead adaptations.
+- P/QRS/T delineation depends on a detector and fallback. Mitigation: fallback rate is logged and the fixed offset method maintains operational robustness.
+- Distribution differences between datasets can inflate/attenuate SSL gains. Mitigation: multiple seeds, paired bootstrap by exam and strict protocol without leakage.
 
 ## Smoke tests
 
