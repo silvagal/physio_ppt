@@ -90,23 +90,17 @@ python3 -m physio_ppt.cli run --config physio_ppt/configs/train/physio_ppt.yaml 
 
 Consistency only:
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
-  --override ssl.use_consistency=true --override ssl.use_contrastive=false
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda   --override ssl.use_consistency=true --override ssl.use_contrastive=false
 ```
 
 Contrastive only:
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
-  --override ssl.use_consistency=false --override ssl.use_contrastive=true
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda   --override ssl.use_consistency=false --override ssl.use_contrastive=true
 ```
 
 Both + without inter-segment (Physio-PPT Intra-only):
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
-  --override ssl.perturb_mode=intra
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda   --override ssl.perturb_mode=intra
 ```
 
 ### E3: Reliability and seed-dependent collapse
@@ -114,30 +108,22 @@ python3 -m physio_ppt.cli run \
 
 Strong supervised:
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/supervised_strong.yaml --seed 42 --device cuda \
-  --override pipeline.label_fractions=0.1 --override pipeline.do_pretrain=false
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/supervised_strong.yaml --seed 42 --device cuda   --override pipeline.label_fractions=0.1 --override pipeline.do_pretrain=false
 ```
 
 Classic PPT:
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/ppt_classic.yaml --seed 42 --device cuda \
-  --override pipeline.label_fractions=0.1
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/ppt_classic.yaml --seed 42 --device cuda   --override pipeline.label_fractions=0.1
 ```
 
 WavePuzzle:
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/wavepuzzle.yaml --seed 42 --device cuda \
-  --override pipeline.label_fractions=0.1
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/wavepuzzle.yaml --seed 42 --device cuda   --override pipeline.label_fractions=0.1
 ```
 
 Physio-PPT:
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
-  --override pipeline.label_fractions=0.1
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda   --override pipeline.label_fractions=0.1
 ```
 
 Hybrid (optional):
@@ -153,17 +139,13 @@ bash physio_ppt/scripts/04_orderness_analysis.sh
 ### E5 (optional): noise/drift robustness
 Use overrides for noise (simple example):
 ```bash
-python3 -m physio_ppt.cli run \
-  --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda \
-  --override ssl.noise_sigma=0.02
+python3 -m physio_ppt.cli run   --config physio_ppt/configs/train/physio_ppt.yaml --seed 42 --device cuda   --override ssl.noise_sigma=0.02
 ```
 
 ## Statistical significance (paired bootstrap)
 
 ```bash
-bash physio_ppt/scripts/03_eval_significance.sh \
-  physio_ppt/configs/eval/significance_bootstrap.yaml \
-  <pred_method_a.npz> <pred_method_b.npz> 42 cpu
+bash physio_ppt/scripts/03_eval_significance.sh   physio_ppt/configs/eval/significance_bootstrap.yaml   <pred_method_a.npz> <pred_method_b.npz> 42 cpu
 ```
 
 ## Table and Figure Generation
