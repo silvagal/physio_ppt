@@ -1,0 +1,4 @@
+model:
+  head:
+    proj_dim: 128
+    num_permutations: 6

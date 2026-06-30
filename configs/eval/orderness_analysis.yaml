@@ -1,0 +1,11 @@
+paths:
+  output_root: physio_ppt/outputs
+
+analysis:
+  fs: 500
+  beat_pre_ms: 200
+  acf_max_lag: 200
+  acf_chunk: 40
+  windows_npz: ecg-patch-order-ssl/data/processed/mitbih/fs500/windows_2000ms_zscore/test/windows.npz
+  beats_npz: ecg-patch-order-ssl/data/processed/mitbih/fs500/zscore/test/beats.npz
+  performance_csv: physio_ppt/outputs/tables/orderness_vs_gain.csv

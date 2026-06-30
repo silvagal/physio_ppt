@@ -1,0 +1,21 @@
+data:
+  # PTB-XL fs nativo = 500 Hz. Alinhado com MIT-BIH (ja reamostrado para 500 Hz).
+  # Sinais: 5000 amostras = 10 s. O finetune usa crop_size=500 (1000 ms) para
+  # alinhar ao beat scale do pretrain.
+  fs: 500
+  normalize: zscore
+  seed: 42
+
+  # Raw data input (used by prepare_data)
+  ptbxl_raw_dir: ecg-patch-order-ssl/data/raw/ptbxl
+  ptbxl_out_dir: physio_ppt/outputs/data/ptbxl/fs500
+
+  # Processed root used by fine-tuning
+  ptbxl_root: ecg-patch-order-ssl/data/processed/ptbxl/fs500/superclasses
+
+  # For transfer fairness with MIT-BIH 2-lead pretraining.
+  # Override to [0,1,2,...,11] if using a 12-lead pretraining setup.
+  ptbxl_lead_indices: [0, 1]
+
+  prepare_ptbxl: false
+  max_ptbxl_records: null

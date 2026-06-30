@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "physio-ppt"
+version = "0.1.0"
+description = "Physio-PPT: physiology-grounded SSL for multi-lead ECG in low-label regimes"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Physio-PPT Authors" }]
+dependencies = [
+  "numpy",
+  "scipy",
+  "pandas",
+  "pyyaml",
+  "tqdm",
+  "wfdb",
+  "torch",
+  "scikit-learn",
+  "matplotlib",
+]
+
+[project.optional-dependencies]
+extras = [
+  "neurokit2",
+  "biosppy",
+]
+dev = [
+  "pytest",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

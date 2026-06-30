@@ -1,0 +1,5 @@
+model:
+  head:
+    proj_dim: 128
+    num_segment_orders: 6
+    enable_segment_order: true

@@ -1,0 +1,22 @@
+_base_:
+  - ../dataset/ptbxl_superdiag_official_fs100.yaml
+  - ../model/legacy_physioppt_transformer.yaml
+  - ../train/record_level_default.yaml
+
+experiment:
+  name: physioppt_legacy_transformer_01pct
+  kind: ssl_finetune
+
+low_label:
+  fraction: 0.01
+  split_seed: 42
+
+pretrained:
+  enabled: true
+  source: physio_ppt_pretrain
+  checkpoint: physio_ppt/outputs/pretrain/REPLACE_WITH_PRETRAIN_RUN/best_pretrain.pt
+
+outputs:
+  root: physio_ppt/experiments/strodthoff_protocol/outputs
+  run_name: physioppt_legacy_transformer_01pct
+

@@ -1,0 +1,6 @@
+paths:
+  output_root: physio_ppt/outputs
+
+eval:
+  kind: aggregate
+  glob: physio_ppt/outputs/finetune/*/test_metrics.csv

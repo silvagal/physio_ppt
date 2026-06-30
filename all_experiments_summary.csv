@@ -1,0 +1,103 @@
+experiment,frac,seed,path,completed,mtime,test_macro_f1
+Physio-PPT (Full),0.1,2025,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s2025_f0.10_1a8b8f0865,True,1771582953.508929,0.5685339565802038
+Ablation: Contrastive Only,0.1,123,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s123_f0.10_d1d0edcc3d,True,1771575921.328933,0.5577554019038196
+Ablation: Contrastive Only,0.05,123,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s123_f0.05_c12f311d9e,True,1771575888.508933,0.5301731037165621
+Ablation: Contrastive Only,0.01,123,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s123_f0.01_d322bc2a86,True,1771575853.248933,0.3860319422555669
+Ablation: Consistency Only,0.1,123,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s123_f0.10_2a9b451a52,True,1771560802.9189422,0.502210869204173
+Ablation: Consistency Only,0.05,123,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s123_f0.05_0d70f5b1c3,True,1771560763.6289423,0.4556569652554448
+Ablation: Consistency Only,0.01,123,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s123_f0.01_7533a79ae9,True,1771560730.1989422,0.3041851835349644
+Physio-PPT (Full),0.1,1337,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s1337_f0.10_0ee117a58f,True,1771560223.3789425,0.5305737300803844
+Ablation: Intra-only,0.1,7,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s7_f0.10_0ab9e49070,True,1771544148.448952,0.5508324783407466
+Ablation: Intra-only,0.05,7,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s7_f0.05_663d7e5220,True,1771544102.788952,0.5299587458379327
+Ablation: Intra-only,0.01,7,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s7_f0.01_cf8093b1ff,True,1771544061.6989522,0.4154028053849554
+Physio-PPT (Full),0.1,42,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s42_f0.10_97f17eaa29,True,1771536599.5289567,0.5551442515966128
+Ablation: Contrastive Only,0.1,7,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s7_f0.10_976e06b3cb,True,1771529082.118961,0.5745797409677451
+Ablation: Contrastive Only,0.05,7,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s7_f0.05_2251c30092,True,1771529037.438961,0.5254834379261493
+Ablation: Contrastive Only,0.01,7,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s7_f0.01_3a050c6f4d,True,1771528991.738961,0.4127729418545945
+Ablation: Consistency Only,0.1,7,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s7_f0.10_9d5de16f7b,True,1771522688.5689647,0.5688002278155195
+Ablation: Consistency Only,0.05,7,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s7_f0.05_7308cd84ca,True,1771522638.1889648,0.5591772838375212
+Ablation: Consistency Only,0.01,7,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s7_f0.01_f80a8df473,True,1771522607.288965,0.3030904844774827
+Ablation: Intra-only,0.1,2025,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s2025_f0.10_f8a1dbf5b5,True,1771520372.4389663,0.5820345353578289
+Ablation: Intra-only,0.05,2025,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s2025_f0.05_6ffa6dd66b,True,1771520329.1689663,0.5370818321091105
+Ablation: Intra-only,0.01,2025,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s2025_f0.01_d881f8f693,True,1771520299.4689662,0.3880365874094008
+Ablation: Contrastive Only,0.1,2025,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s2025_f0.10_5c0e47b761,True,1771517600.488968,0.5504625424378389
+Ablation: Contrastive Only,0.05,2025,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s2025_f0.05_27cec8212f,True,1771517568.748968,0.5308627514555144
+Ablation: Contrastive Only,0.01,2025,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s2025_f0.01_0b701a1b36,True,1771517526.228968,0.4459945741916374
+Ablation: Consistency Only,0.1,2025,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s2025_f0.10_98892b16b2,True,1771515873.9689689,0.5507362487892953
+Ablation: Consistency Only,0.05,2025,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s2025_f0.05_6349667bbf,True,1771515844.318969,0.5074212600999377
+Ablation: Consistency Only,0.01,2025,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s2025_f0.01_7954604a48,True,1771515790.558969,0.2751206571054692
+WavePuzzle,0.1,123,physio_ppt/outputs/finetune/wavepuzzle_frac10_finetune_s123_f0.10_af628a70d9,True,1771514030.64897,0.5671759469223531
+WavePuzzle,0.1,7,physio_ppt/outputs/finetune/wavepuzzle_frac10_finetune_s7_f0.10_d367766d04,True,1771513771.70897,0.5904598258777917
+WavePuzzle,0.1,2025,physio_ppt/outputs/finetune/wavepuzzle_frac10_finetune_s2025_f0.10_6dc8f5b22c,True,1771513657.7189703,0.5690455719667885
+Ablation: Intra-only,0.1,1337,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s1337_f0.10_3e169a5d76,True,1771513560.6589704,0.5431019887890984
+WavePuzzle,0.1,1337,physio_ppt/outputs/finetune/wavepuzzle_frac10_finetune_s1337_f0.10_b26794edbf,True,1771513534.3589704,0.5349653575786784
+Ablation: Intra-only,0.05,1337,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s1337_f0.05_1819786345,True,1771513520.4689703,0.4921100468784136
+Ablation: Intra-only,0.01,1337,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s1337_f0.01_cb4566aba4,True,1771513473.3989704,0.4025786193318622
+WavePuzzle,0.1,42,physio_ppt/outputs/finetune/wavepuzzle_frac10_finetune_s42_f0.10_babf27c698,True,1771513411.0789704,0.5646802051579096
+PPT-Classic,0.1,123,physio_ppt/outputs/finetune/ppt_classic_frac10_finetune_s123_f0.10_a49c06ad86,True,1771513346.9089704,0.5621736236491277
+PPT-Classic,0.1,7,physio_ppt/outputs/finetune/ppt_classic_frac10_finetune_s7_f0.10_4a9874f0bd,True,1771513277.1389704,0.56855380502324
+PPT-Classic,0.1,2025,physio_ppt/outputs/finetune/ppt_classic_frac10_finetune_s2025_f0.10_d079539b54,True,1771513202.1789706,0.5625187069183926
+PPT-Classic,0.1,1337,physio_ppt/outputs/finetune/ppt_classic_frac10_finetune_s1337_f0.10_723bea1f61,True,1771513103.5389705,0.5490243157689693
+PPT-Classic,0.1,42,physio_ppt/outputs/finetune/ppt_classic_frac10_finetune_s42_f0.10_38371fb749,True,1771513025.1589706,0.1005370569280343
+Supervised (Strong),0.1,123,physio_ppt/outputs/finetune/supervised_strong_frac10_finetune_s123_f0.10_cc6db4b3f9,True,1771512902.0489707,0.577961178511581
+Supervised (Strong),0.1,7,physio_ppt/outputs/finetune/supervised_strong_frac10_finetune_s7_f0.10_e20f14f1e6,True,1771512773.3489707,0.6013241993698382
+Supervised (Strong),0.1,2025,physio_ppt/outputs/finetune/supervised_strong_frac10_finetune_s2025_f0.10_8aa083ede0,True,1771512657.6389709,0.574258179404622
+Supervised (Strong),0.1,1337,physio_ppt/outputs/finetune/supervised_strong_frac10_finetune_s1337_f0.10_c80e5f9e5f,True,1771512550.4389708,0.5008343332920817
+Supervised (Strong),0.1,42,physio_ppt/outputs/finetune/supervised_strong_frac10_finetune_s42_f0.10_bc79592ca9,True,1771512472.3689709,0.5505725782591715
+Physio-PPT (Full),0.1,123,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s123_f0.10_4fdac29f1d,True,1771512394.548971,0.5732897788278303
+Physio-PPT (Full),0.05,123,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s123_f0.05_e33053d4ed,True,1771512352.138971,0.520917414735268
+Physio-PPT (Full),0.01,123,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s123_f0.01_ec91767682,True,1771512284.5989711,0.3687758234136779
+Physio-PPT (Full),0.1,7,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s7_f0.10_2edd7d812c,True,1771512174.168971,0.5807261833019328
+Physio-PPT (Full),0.05,7,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s7_f0.05_3bf7f23c63,True,1771512105.4589713,0.5387800411022357
+Physio-PPT (Full),0.01,7,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s7_f0.01_f91209c22e,True,1771512031.2189713,0.4052890531984844
+Ablation: Contrastive Only,0.1,1337,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s1337_f0.10_eeea379c04,True,1771510795.938972,0.5184276709967869
+Ablation: Contrastive Only,0.05,1337,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s1337_f0.05_8fc5cd707b,True,1771510751.788972,0.5043048040547446
+Ablation: Contrastive Only,0.01,1337,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s1337_f0.01_6bde45ec52,True,1771510728.258972,0.3257957324232786
+Ablation: Consistency Only,0.1,1337,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s1337_f0.10_26e647e80b,True,1771509054.188973,0.5316253958982095
+Ablation: Consistency Only,0.05,1337,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s1337_f0.05_6ab57d2f8d,True,1771508997.128973,0.5635231464247227
+Ablation: Consistency Only,0.01,1337,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s1337_f0.01_be35cbdde9,True,1771508974.528973,0.0739178690344062
+Ablation: Intra-only,0.1,42,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s42_f0.10_2ec3a04a89,True,1771504194.2089758,0.5644776410761302
+Ablation: Intra-only,0.05,42,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s42_f0.05_a9ebf27ce2,True,1771504145.288976,0.5365974206515405
+Ablation: Intra-only,0.01,42,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s42_f0.01_8302f53bab,True,1771504091.3789759,0.4171325618467145
+Ablation: Contrastive Only,0.1,42,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s42_f0.10_752c2ea7f1,True,1771501390.8289776,0.5687937216003174
+Ablation: Contrastive Only,0.05,42,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s42_f0.05_6b85e8273f,True,1771501332.2689776,0.5246866205244085
+Ablation: Contrastive Only,0.01,42,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s42_f0.01_c104b6589f,True,1771501288.9389775,0.4464195295538093
+Ablation: Consistency Only,0.1,42,physio_ppt/outputs/finetune/physio_ppt_frac10_finetune_s42_f0.10_b46d3f43e7,True,1771499601.8489785,0.5688122303886883
+Ablation: Consistency Only,0.05,42,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s42_f0.05_11ec32d2f6,True,1771499554.5589786,0.4715125810627678
+Ablation: Consistency Only,0.01,42,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s42_f0.01_153310dc00,True,1771499520.6189787,0.291755183219302
+Supervised (Strong),0.05,123,physio_ppt/outputs/finetune/supervised_strong_frac05_finetune_s123_f0.05_ca55ada15b,True,1771497438.5389798,0.5478247365494939
+Supervised (Strong),0.01,123,physio_ppt/outputs/finetune/supervised_strong_frac01_finetune_s123_f0.01_1fa72e882f,True,1771497373.33898,0.3545065229451397
+Supervised (Strong),0.05,7,physio_ppt/outputs/finetune/supervised_strong_frac05_finetune_s7_f0.05_956184b528,True,1771497187.46898,0.5666307962580921
+Supervised (Strong),0.01,7,physio_ppt/outputs/finetune/supervised_strong_frac01_finetune_s7_f0.01_9c00a8b0a0,True,1771497158.6689801,0.4387177698618221
+Supervised (Strong),0.05,2025,physio_ppt/outputs/finetune/supervised_strong_frac05_finetune_s2025_f0.05_01ed196c3c,True,1771496972.98898,0.5398735567724589
+Supervised (Strong),0.01,2025,physio_ppt/outputs/finetune/supervised_strong_frac01_finetune_s2025_f0.01_fea00e483c,True,1771496877.1489801,0.490459826158804
+Supervised (Strong),0.05,1337,physio_ppt/outputs/finetune/supervised_strong_frac05_finetune_s1337_f0.05_3c2348f7a9,True,1771496666.4789803,0.5068506293141585
+Supervised (Strong),0.01,1337,physio_ppt/outputs/finetune/supervised_strong_frac01_finetune_s1337_f0.01_e6186930f1,True,1771496604.3589804,0.4578250177008168
+Supervised (Strong),0.05,42,physio_ppt/outputs/finetune/supervised_strong_frac05_finetune_s42_f0.05_b88b192db4,True,1771496408.6989806,0.5814589102117411
+Supervised (Strong),0.01,42,physio_ppt/outputs/finetune/supervised_strong_frac01_finetune_s42_f0.01_b96341fa3a,True,1771496329.3289804,0.4211194489141422
+PPT-Classic,0.05,123,physio_ppt/outputs/finetune/ppt_classic_frac05_finetune_s123_f0.05_9b183267af,True,1771496159.1089807,0.5340557306317549
+PPT-Classic,0.01,123,physio_ppt/outputs/finetune/ppt_classic_frac01_finetune_s123_f0.01_e896b1da74,True,1771496069.1589806,0.4168866476242977
+PPT-Classic,0.05,7,physio_ppt/outputs/finetune/ppt_classic_frac05_finetune_s7_f0.05_b3a7e61721,True,1771495900.7389808,0.5361099038270535
+PPT-Classic,0.01,7,physio_ppt/outputs/finetune/ppt_classic_frac01_finetune_s7_f0.01_76a5f86ff6,True,1771495812.4889808,0.4973920989358479
+PPT-Classic,0.05,2025,physio_ppt/outputs/finetune/ppt_classic_frac05_finetune_s2025_f0.05_99fb688085,True,1771495645.8789809,0.5449006118807198
+PPT-Classic,0.01,2025,physio_ppt/outputs/finetune/ppt_classic_frac01_finetune_s2025_f0.01_ac85f25dbd,True,1771495552.038981,0.4967051008303637
+PPT-Classic,0.05,1337,physio_ppt/outputs/finetune/ppt_classic_frac05_finetune_s1337_f0.05_21d7fab509,True,1771495363.148981,0.5301750096811573
+PPT-Classic,0.01,1337,physio_ppt/outputs/finetune/ppt_classic_frac01_finetune_s1337_f0.01_cfdb143f17,True,1771495281.7689812,0.5019351649008208
+PPT-Classic,0.05,42,physio_ppt/outputs/finetune/ppt_classic_frac05_finetune_s42_f0.05_799fc48000,True,1771495155.9889812,0.0787096774193548
+PPT-Classic,0.01,42,physio_ppt/outputs/finetune/ppt_classic_frac01_finetune_s42_f0.01_269d865139,True,1771495091.1489813,0.101313771415663
+WavePuzzle,0.05,123,physio_ppt/outputs/finetune/wavepuzzle_frac05_finetune_s123_f0.05_48fe254c56,True,1771494942.1589813,0.5204521383554157
+WavePuzzle,0.01,123,physio_ppt/outputs/finetune/wavepuzzle_frac01_finetune_s123_f0.01_3a2cabf51f,True,1771494867.7889814,0.3322359230514106
+WavePuzzle,0.05,7,physio_ppt/outputs/finetune/wavepuzzle_frac05_finetune_s7_f0.05_445fb68938,True,1771494763.6589816,0.5351907447826443
+WavePuzzle,0.01,7,physio_ppt/outputs/finetune/wavepuzzle_frac01_finetune_s7_f0.01_907ee8aa67,True,1771494664.0689816,0.4019807602461234
+WavePuzzle,0.05,2025,physio_ppt/outputs/finetune/wavepuzzle_frac05_finetune_s2025_f0.05_98434f5eed,True,1771494461.2289817,0.5175892260949413
+WavePuzzle,0.01,2025,physio_ppt/outputs/finetune/wavepuzzle_frac01_finetune_s2025_f0.01_0889c118a4,True,1771494380.5589817,0.3358917800839979
+WavePuzzle,0.05,1337,physio_ppt/outputs/finetune/wavepuzzle_frac05_finetune_s1337_f0.05_292e24c403,True,1771494168.9489818,0.5209237796299848
+WavePuzzle,0.01,1337,physio_ppt/outputs/finetune/wavepuzzle_frac01_finetune_s1337_f0.01_609d203f09,True,1771494139.5789819,0.3175516718219026
+WavePuzzle,0.05,42,physio_ppt/outputs/finetune/wavepuzzle_frac05_finetune_s42_f0.05_ef0d56dc09,True,1771493943.248982,0.5206518823106153
+WavePuzzle,0.01,42,physio_ppt/outputs/finetune/wavepuzzle_frac01_finetune_s42_f0.01_82bceb7400,True,1771493851.588982,0.4125085409385082
+Physio-PPT (Full),0.05,2025,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s2025_f0.05_70735941f1,True,1771488298.8589854,0.4962017242596536
+Physio-PPT (Full),0.01,2025,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s2025_f0.01_1fd98e2868,True,1771488192.5789855,0.4294777967393534
+Physio-PPT (Full),0.05,1337,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s1337_f0.05_fa980b0793,True,1771464432.8889995,0.4914317934412405
+Physio-PPT (Full),0.01,1337,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s1337_f0.01_db0c0ce88c,True,1771464340.4089997,0.3811647602657252
+Physio-PPT (Full),0.05,42,physio_ppt/outputs/finetune/physio_ppt_frac05_finetune_s42_f0.05_07d6a45547,True,1771445846.1890106,0.5333747278289189
+Physio-PPT (Full),0.01,42,physio_ppt/outputs/finetune/physio_ppt_frac01_finetune_s42_f0.01_69be32a9da,True,1771445683.9690108,0.3994569223248391

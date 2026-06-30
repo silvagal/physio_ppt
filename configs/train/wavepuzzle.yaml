@@ -1,0 +1,39 @@
+_base_:
+  - ../data/mitbih_fs500.yaml
+  - ../data/ptbxl_fs500.yaml
+  - ../model/backbone_resnet1d.yaml
+  - ../model/heads_wavepuzzle.yaml
+
+experiment:
+  name: wavepuzzle
+  method: wavepuzzle
+
+paths:
+  output_root: physio_ppt/outputs
+  figures_dir: physio_ppt/figures
+
+pipeline:
+  do_pretrain: true
+  do_finetune: true
+  label_fractions: [0.01, 0.05, 0.10]
+
+train:
+  batch_size: 64
+  num_workers: 0
+  epochs: 20
+  lr: 0.001
+  weight_decay: 0.0001
+  early_stop_patience: 6
+  task_type: multilabel
+  num_classes: 5
+  use_focal: false
+  freeze_backbone: false
+  label_fraction: 1.0
+  # crop_size = 500 amostras = 1000 ms @ 500 Hz: alinhado ao beat scale do pretrain.
+  crop_size: 500
+  max_samples: null
+  max_train_samples: null
+
+ssl:
+  lambda_contrast: 0.2
+  temperature: 0.2

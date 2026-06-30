@@ -1,0 +1,7 @@
+model:
+  backbone:
+    name: resnet1d
+    in_channels: 2
+    base_channels: 64
+    d_model: 256
+    blocks_per_stage: [2, 2, 2]

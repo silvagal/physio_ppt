@@ -1,0 +1,23 @@
+data:
+  # MIT-BIH fs original = 360 Hz. Os artefatos processados em ecg-patch-order-ssl
+  # ja foram reamostrados para 500 Hz (mesmo que PTB-XL) durante o pre-processamento.
+  # beat_len_samples = (beat_pre_ms + beat_post_ms) * fs / 1000 = 600 * 500/1000 = 300
+  # Apos reamostragem de 360->500 Hz: 300 * (500/360) = 417 amostras = 834 ms.
+  fs: 500
+  normalize: zscore
+  window_ms: 2000
+  window_stride_ms: 500
+  beat_pre_ms: 200
+  beat_post_ms: 400
+  seed: 42
+
+  # Raw data input (used by prepare_data)
+  mitbih_raw_dir: ecg-patch-order-ssl/data/raw/mitbih
+  mitbih_out_dir: physio_ppt/outputs/data/mitbih/fs500
+
+  # Processed roots used by training (default: existing processed artifacts)
+  mitbih_windows_root: ecg-patch-order-ssl/data/processed/mitbih/fs500/windows_2000ms_zscore
+  mitbih_beats_root: ecg-patch-order-ssl/data/processed/mitbih/fs500/zscore
+
+  prepare_mitbih: false
+  max_mitbih_records: null

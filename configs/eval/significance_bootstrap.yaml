@@ -1,0 +1,10 @@
+paths:
+  output_root: physio_ppt/outputs
+
+eval:
+  kind: bootstrap
+  pred_a: physio_ppt/outputs/finetune/method_a/test_predictions.npz
+  pred_b: physio_ppt/outputs/finetune/method_b/test_predictions.npz
+  task_type: multilabel
+  n_bootstrap: 10000
+  seed: 42
