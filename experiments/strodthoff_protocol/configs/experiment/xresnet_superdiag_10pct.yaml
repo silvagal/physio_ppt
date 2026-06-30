@@ -1,0 +1,17 @@
+_base_:
+  - ../dataset/ptbxl_superdiag_official_fs100.yaml
+  - ../model/xresnet1d101.yaml
+  - ../train/record_level_default.yaml
+
+experiment:
+  name: xresnet_superdiag_10pct
+  kind: supervised
+
+low_label:
+  fraction: 0.10
+  split_seed: 42
+
+outputs:
+  root: physio_ppt/experiments/strodthoff_protocol/outputs
+  run_name: xresnet_superdiag_10pct
+

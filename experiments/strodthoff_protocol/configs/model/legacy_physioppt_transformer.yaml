@@ -1,0 +1,17 @@
+model:
+  name: legacy_physioppt_backbone
+  backbone:
+    name: transformer
+    in_channels: 12
+    patch_len: 64
+    stride: 32
+    d_model: 192
+    nhead: 6
+    num_layers: 4
+    dim_feedforward: 512
+    dropout: 0.1
+    pooling: mean
+    learnable_positional: true
+    max_tokens: 2048
+    use_channel_embedding: true
+

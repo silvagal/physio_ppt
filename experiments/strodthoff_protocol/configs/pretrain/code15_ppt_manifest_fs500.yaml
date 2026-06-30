@@ -1,0 +1,58 @@
+runtime:
+  seed: 42
+  device: cuda
+  deterministic: true
+
+dataset:
+  name: code15_ssl_manifest
+  format: manifest_npy
+  # Cardio-JEPA padrão (via symlink em references/Cardio-JEPA)
+  root: /media/data/eduardo/Cardio-JEPA/data/processed/code15
+  manifest_csv: /media/data/eduardo/Cardio-JEPA/data/manifests/code15_manifest.csv
+  split_train: train
+  split_val: val
+  num_leads: 12
+  seq_len_samples: 5000
+  normalize_per_sample: true
+  max_train_records: null
+  max_val_records: null
+
+model:
+  backbone:
+    name: transformer
+    in_channels: 12
+    patch_len: 100
+    stride: 50
+    d_model: 256
+    nhead: 8
+    num_layers: 8
+    dim_feedforward: 768
+    dropout: 0.1
+    pooling: mean
+    learnable_positional: true
+    max_tokens: 2048
+    use_channel_embedding: true
+  proj_dim: 128
+  head_hidden_dim: 256
+
+train:
+  epochs: 150
+  batch_size: 256
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+  lr: 0.00015
+  weight_decay: 0.0001
+  crop_size_samples: 2500
+
+ssl:
+  patch_len_perm: 40
+  channel_perm_prob: 0.3
+  lambda_consistency: 1.0
+  lambda_contrast: 1.0
+  temperature: 0.2
+
+outputs:
+  root: physio_ppt/experiments/strodthoff_protocol/outputs
+  run_name: pretrain_code15_ppt_manifest_fs500
+

@@ -1,0 +1,59 @@
+runtime:
+  seed: 42
+  device: cuda
+  deterministic: true
+
+dataset:
+  name: code15_ssl_hdf5
+  format: hdf5_index
+  raw_root: ecg-patch-order-ssl/data/raw/code15
+  index_csv: physio_ppt/experiments/strodthoff_protocol/outputs/data/code15_hdf5_index_seed42.csv
+  split_seed: 42
+  split_train: train
+  split_val: val
+  num_leads: 12
+  seq_len_samples: 4000
+  normalize_per_sample: true
+  max_index_records: null
+  max_train_records: null
+  max_val_records: null
+
+model:
+  backbone:
+    name: transformer
+    in_channels: 12
+    patch_len: 80
+    stride: 40
+    d_model: 256
+    nhead: 8
+    num_layers: 8
+    dim_feedforward: 768
+    dropout: 0.1
+    pooling: mean
+    learnable_positional: true
+    max_tokens: 2048
+    use_channel_embedding: true
+  proj_dim: 128
+  head_hidden_dim: 256
+
+train:
+  epochs: 150
+  batch_size: 256
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+  lr: 0.00015
+  weight_decay: 0.0001
+  crop_size_samples: 2000
+
+ssl:
+  patch_len_perm: 40
+  channel_perm_prob: 0.3
+  lambda_consistency: 1.0
+  lambda_contrast: 1.0
+  temperature: 0.2
+
+outputs:
+  root: physio_ppt/experiments/strodthoff_protocol/outputs
+  run_name: pretrain_code15_ppt_hdf5_fs400
+

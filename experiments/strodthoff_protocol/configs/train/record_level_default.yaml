@@ -1,0 +1,32 @@
+runtime:
+  seed: 42
+  device: cuda
+  deterministic: true
+
+train:
+  batch_size: 64
+  num_workers: 4
+  epochs: 50
+  optimizer: adamw
+  lr: 0.0003
+  weight_decay: 0.0001
+  scheduler: cosine
+  early_stop_patience: 12
+  model_selection_metric: macro_auroc
+
+protocol:
+  window_size_seconds: 2.5
+  window_overlap: 0.5
+  eval_overlap: 0.5
+  aggregation: mean
+  eval_window_batch_size: 256
+
+low_label:
+  fraction: 1.0
+  split_seed: 42
+  split_method: record_random
+
+outputs:
+  root: physio_ppt/experiments/strodthoff_protocol/outputs
+  run_name: default_run
+
